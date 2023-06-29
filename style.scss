@@ -1,0 +1,21 @@
+$font-family-sans-serif: 'Montserrat', sans-serif;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&display=swap');
+@import "./node_modules/animate.css/animate.min.css";
+@import "./node_modules/bootstrap/scss/bootstrap.scss";
+@import "./node_modules/bootstrap-icons/font/bootstrap-icons.css";
+
+.data-loader {
+    font-size: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+}
+
+.item-img {
+    height: 150px;
+    max-width: 100%;
+}
+
+.item-card {
+    height: 380px;
+}
