@@ -1,10 +1,12 @@
 import './style.scss';
 import { removeLoaderUi, showLoaderUi } from './js/loader';
 import { createItemUi } from './js/item';
-import { addToCart } from './js/cart';
+import { addToCart, costTotal } from './js/cart';
+import * as bootstrap from 'bootstrap';
+import Swal from 'sweetalert2';
 
 // type = module ရဲ့ Variable ကို Console မှပြန်ခေါ်ရင် Browser console မှ မသိနိုင်ပါ
-let items = [];
+export let items = [];
 
 //ဒါမျိုးရေးမှရမည်
 // window.items = [];
@@ -12,6 +14,11 @@ let items = [];
 export const itemRow = document.querySelector(".item-row");
 export const cartBtn = document.querySelector(".cart-btn");
 export const cartCounter = document.querySelector(".cart-counter");
+export const cartNumber = document.querySelector(".cart-number");
+export const cartBox = document.querySelector("#cartBox");
+export const total = document.querySelector("#total");
+export const printBtn = document.querySelector(".printBtn");
+
 
 
 showLoaderUi();
@@ -37,5 +44,62 @@ fetch('https://fakestoreapi.com/products')
       addToCart(e);      
     }
   });
+
+
   
+
+  printBtn.addEventListener('click', function() {
+    console.log("Print");
+    if(parseFloat(total.innerHTML) > 0) {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "Wanna checkout all of these items",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, I will!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Thank You!',
+            'You can check delivery date later.',
+            'success'
+          );
+
+          setTimeout(() => {
+             location.reload();
+          }, 5000);
+
+
+        }
+      })
+
+      // 
+
+    }
+  });
+
+  // printBtn.addEventListener('animationend', _ => document.querySelector("#cartBox").remove());
+  
+
+//   export const printCost = function() {
+//   Swal.fire({
+//     title: 'Are you sure?',
+//     text: "You won't be able to revert this!",
+//     icon: 'warning',
+//     showCancelButton: true,
+//     confirmButtonColor: '#3085d6',
+//     cancelButtonColor: '#d33',
+//     confirmButtonText: 'Yes, delete it!'
+//   }).then((result) => {
+//     if (result.isConfirmed) {
+//       Swal.fire(
+//         'Deleted!',
+//         'Your file has been deleted.',
+//         'success'
+//       )
+//     }
+//   })
+// };
   

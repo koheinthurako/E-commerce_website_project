@@ -4,6 +4,7 @@ $font-family-sans-serif: 'Montserrat', sans-serif;
 @import "./node_modules/animate.css/animate.min.css";
 @import "./node_modules/bootstrap/scss/bootstrap.scss";
 @import "./node_modules/bootstrap-icons/font/bootstrap-icons.css";
+@import "./node_modules/sweetalert2/dist/sweetalert2.min.css";
 
 .data-loader {
     font-size: 1.5rem;
@@ -18,4 +19,8 @@ $font-family-sans-serif: 'Montserrat', sans-serif;
 
 .item-card {
     height: 380px;
+}
+
+.cart-item-img {
+    height: 50px;
 }
