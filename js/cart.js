@@ -1,9 +1,16 @@
 import { cartBox, cartBtn, cartCounter, cartNumber, items, total } from "../main";
+import Swal from 'sweetalert2';
 
 export const cartCounterUpdate = function() {
   cartCounter.innerText = parseInt(cartCounter.innerText) + 1;
   cartNumber.innerText = cartCounter.innerText;
-    
+};
+
+export const cartNumberRemove = function() {
+  let cartCounter = document.querySelector(".cart-counter");
+  let cartNumber = document.querySelector(".cart-number");
+  cartNumber.innerHTML -= 1;
+  cartCounter.innerHTML = cartNumber.innerHTML;
 };
 
 export const costTotal = function() {
@@ -31,14 +38,37 @@ window.dec = function(event, price) {
   costTotal();
 };
 
+window.delCart = function(event) {
+  let currentCard = event.target.closest(".item-in-cart");
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "Wanna cancel this item",
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonColor: '#171717',
+    cancelButtonColor: '#3085d6',
+    confirmButtonText: 'Yes'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      currentCard.remove();
+      costTotal();
+      cartNumberRemove();
+    }
+  })
+};
+
 export const createItemInCart =  function({id, title, price, image}) {
   const div = document.createElement('div');
-  div.classList.add("item-in-cart");
+  div.classList.add("item-in-cart", "bg-white", "shadow-sm");
   div.innerHTML = `
-    <div class="p-3 border rounded mb-3">
-      <div class="mb-3">
-        <img src="${image}" class="cart-item-img">
+    <div class="p-3 rounded mb-3">
+      <div class="d-flex justify-content-between align-items-start">
+        <div class="mb-3">
+          <img src="${image}" class="cart-item-img">
+        </div>
+        <button class="btn btn-danger btn-sm cartDelBtn" onclick="delCart(event)">Delete</button>
       </div>
+      
       <p class="fw-bold small">${title}</p>
       <div class="row justify-content-between align-items-center">
         <div class="col-4">

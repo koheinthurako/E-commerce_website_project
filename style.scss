@@ -1,10 +1,16 @@
 $font-family-sans-serif: 'Montserrat', sans-serif;
 
+$primary: #171717;
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&display=swap');
 @import "./node_modules/animate.css/animate.min.css";
 @import "./node_modules/bootstrap/scss/bootstrap.scss";
 @import "./node_modules/bootstrap-icons/font/bootstrap-icons.css";
 @import "./node_modules/sweetalert2/dist/sweetalert2.min.css";
+
+body {
+    background-color: rgb(244, 244, 244);
+}
 
 .data-loader {
     font-size: 1.5rem;
@@ -23,4 +29,46 @@ $font-family-sans-serif: 'Montserrat', sans-serif;
 
 .cart-item-img {
     height: 50px;
+}
+
+.card {
+    transition: 0.3s;
+    border: none !important;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.item-img{
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    
+    .item-img{
+        transform: rotate(5deg);
+    }
+}
+
+#cartBox {
+    background-color: rgb(244, 244, 244);
+}
+
+.swal2-loader .button{
+    background-color: #171717;
+}
+
+.swal2-confirm {
+    background-color: #171717 !important;
+}
+
+.swal2-icon {
+    border-color: #555555 !important;
+}
+
+.swal2-question {
+    color: #171717 !important;
+}
+
+.swal2-icon {
+    color: #171717 !important;
 }
