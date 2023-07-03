@@ -53,9 +53,9 @@ window.delCart = function(event) {
       currentCard.classList.add("animate__animated", "animate__headShake");
       setTimeout(() => {
         currentCard.remove();
+        costTotal();
+        cartNumberRemove();
       }, 1000);
-      costTotal();
-      cartNumberRemove();
     }
   })
 };

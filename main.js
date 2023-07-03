@@ -68,7 +68,7 @@ fetch('https://fakestoreapi.com/products')
 
           setTimeout(() => {
              location.reload();
-          }, 5000);
+          }, 4000);
 
 
         }
