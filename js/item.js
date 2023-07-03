@@ -2,7 +2,7 @@ import { excerpt } from "./utilities";
 
 export const createItemUi = function({id, title, image, description, price}) {
     let itemDiv = document.createElement('div');
-        itemDiv.classList.add("col-md-6", "col-lg-4");
+        itemDiv.classList.add("col-md-6", "col-lg-4", "animate__animated", "animate__bounceIn");
         itemDiv.innerHTML =   `
             <div class="card item-card" item-id="${id}">
             <div class="card-body d-flex flex-column"> 

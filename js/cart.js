@@ -50,7 +50,10 @@ window.delCart = function(event) {
     confirmButtonText: 'Yes'
   }).then((result) => {
     if (result.isConfirmed) {
-      currentCard.remove();
+      currentCard.classList.add("animate__animated", "animate__headShake");
+      setTimeout(() => {
+        currentCard.remove();
+      }, 1000);
       costTotal();
       cartNumberRemove();
     }
