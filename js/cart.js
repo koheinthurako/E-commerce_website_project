@@ -82,7 +82,7 @@ export const createItemInCart =  function({id, title, price, image}) {
             <button class="btn btn-secondary" onclick="dec(event, ${price})">
               <i class="bi bi-dash pe-none"></i>
             </button>
-            <input type="number" class="form-control text-end cart-quantity" value="1">
+            <input type="number" class="form-control text-end cart-quantity" value="1" onchange="changeQuantity(${price})">
             <button class="btn btn-secondary" onclick="inc(event, ${price})">
               <i class="bi bi-plus pe-none"></i>
             </button>
@@ -93,7 +93,25 @@ export const createItemInCart =  function({id, title, price, image}) {
     
   `;
   cartBox.append(div);
+
 };
+
+window.changeQuantity = function(price) {
+  // const listItem = this.parentElement;
+  const listItem = document.querySelector('.cart-quantity').parentElement.parentElement.parentElement;
+  const number = listItem.querySelector('.cart-cost');
+  const quantity = document.querySelector('.cart-quantity').value;
+  let cartQuantity = document.querySelector(".cart-quantity");
+
+  cartQuantity.value = quantity;
+  
+  if(!isNaN(quantity) && quantity > 0) {
+    number.innerHTML = (price * quantity).toFixed(2);
+  }
+
+  costTotal();
+  
+}
 
 export const addToCart = function(e) {
     let currentItemCard = e.target.closest('.item-card');
@@ -135,5 +153,8 @@ export const addToCart = function(e) {
       cartBtn.classList.remove("animate__tada");
     });
 
+
 };
+
+
 
