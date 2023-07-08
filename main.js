@@ -18,6 +18,7 @@ export const cartNumber = document.querySelector(".cart-number");
 export const cartBox = document.querySelector("#cartBox");
 export const total = document.querySelector("#total");
 export const printBtn = document.querySelector(".printBtn");
+export const delAllBtn = document.querySelector("#delAllBtn");
 
 
 
@@ -68,7 +69,7 @@ fetch('https://fakestoreapi.com/products')
 
           setTimeout(() => {
              location.reload();
-          }, 4000);
+          }, 3000);
 
 
         }
@@ -78,6 +79,7 @@ fetch('https://fakestoreapi.com/products')
 
     }
   });
+
 
   // printBtn.addEventListener('animationend', _ => document.querySelector("#cartBox").remove());
   

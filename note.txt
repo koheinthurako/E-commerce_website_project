@@ -1,0 +1,28 @@
+div.innerHTML = `
+    <div class="p-3 rounded mb-3">
+      <div class="d-flex justify-content-between align-items-start">
+        <div class="mb-3">
+          <img src="${image}" class="cart-item-img">
+        </div>
+        <button class="btn btn-danger btn-sm cartDelBtn" onclick="delCart(event)">Delete</button>
+      </div>
+      <p class="fw-bold small">${title}</p>
+      <div class="row justify-content-between align-items-center">
+            <div class="col-4">
+                <p class="mb-0 fw-bold">$ <span class="cart-cost">${price}</span></p>
+            </div>
+            <div class="col-6">
+                <div class="cart-item-quantity input-group input-group-sm">
+                    <button class="btn btn-secondary" onclick="dec(event, ${price})">
+                        <i class="bi bi-dash pe-none"></i>
+                    </button>
+                    <input type="number" class="form-control text-end cart-quantity" value="1" onchange="changeQuantity(${price})">
+                    <button class="btn btn-secondary" onclick="inc(event, ${price})">
+                        <i class="bi bi-plus pe-none"></i>
+                    </button>
+                </div>
+            </div>
+      </div>
+    </div>
+    
+  `;
