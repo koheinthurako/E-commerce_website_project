@@ -188,7 +188,7 @@ export const createItemInCart =  function({id, title, price, image}) {
 
   addBtn.append(i2);
   minusBtn.append(i1);
-  div7.append(addBtn, input, minusBtn);
+  div7.append(minusBtn, input, addBtn);
   div6.append(div7);
   div5.append(p2);
 
