@@ -214,10 +214,10 @@ function delCart() {
     title: 'Are you sure?',
     text: "Wanna cancel this item",
     icon: 'question',
-    showCancelButton: true,
-    confirmButtonColor: '#171717',
-    cancelButtonColor: '#3085d6',
-    confirmButtonText: 'Yes'
+    confirmButtonColor: '#BB2D3B',
+    cancelButtonColor: '#171717',
+    confirmButtonText: 'Yes',
+    showCancelButton: true
   }).then((result) => {
     if (result.isConfirmed) {
       current.classList.add("animate__animated", "animate__headShake");

@@ -58,7 +58,7 @@ body {
 }
 
 .swal2-confirm {
-    background-color: #171717 !important;
+    background-color: #BB2D3B !important;
 }
 
 .swal2-icon {
@@ -74,5 +74,9 @@ body {
 }
 
 .swal2-cancel {
-    background-color: #BB2D3B !important;
+    background-color: #171717 !important;
+}
+
+.swal2-modal {
+    direction: rtl;
 }
