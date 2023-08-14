@@ -7,8 +7,6 @@ export const addToCart = function(e) {
   let itemDetail = items.find(item => item.id === parseInt(itemId));
   let currentImg = currentItemCard.querySelector(".item-img");
 
-  // let newImg = document.createElement('img');
-
   // Image() = web API
   let newImg = new Image();
   newImg.src = currentImg.src;
@@ -58,48 +56,6 @@ export const costTotal = function() {
   let all = document.querySelectorAll('.cart-cost');
   total.innerHTML = [...all].reduce( (pv, cv) => pv + parseFloat(cv.innerHTML) ,0).toFixed(2);
 };
-
-// window.inc = function(event, price) {
-//   let currentCard = event.target.closest(".item-in-cart");
-//   let cartQuantity = currentCard.querySelector(".cart-quantity");
-//   let cartCost = currentCard.querySelector(".cart-cost");
-//   cartQuantity.valueAsNumber += 1;
-//   cartCost.innerText = (cartQuantity.valueAsNumber * price).toFixed(2);
-//   costTotal();
-// };
-
-// window.dec = function(event, price) {
-//   let currentCard = event.target.closest(".item-in-cart");
-//   let cartQuantity = currentCard.querySelector(".cart-quantity");
-//   let cartCost = currentCard.querySelector(".cart-cost");
-//   if(cartQuantity.valueAsNumber > 1) {
-//     cartQuantity.valueAsNumber -= 1;
-//   }
-//   cartCost.innerText = (cartQuantity.valueAsNumber * price).toFixed(2);
-//   costTotal();
-// };
-
-// window.delCart = function(event) {
-//   let currentCard = event.target.closest(".item-in-cart");
-//   Swal.fire({
-//     title: 'Are you sure?',
-//     text: "Wanna cancel this item",
-//     icon: 'question',
-//     showCancelButton: true,
-//     confirmButtonColor: '#171717',
-//     cancelButtonColor: '#3085d6',
-//     confirmButtonText: 'Yes'
-//   }).then((result) => {
-//     if (result.isConfirmed) {
-//       currentCard.classList.add("animate__animated", "animate__headShake");
-//       setTimeout(() => {
-//         currentCard.remove();
-//         costTotal();
-//         cartNumberRemove();
-//       }, 1000);
-//     }
-//   })
-// };
 
 export const createItemInCart =  function({id, title, price, image}) {
   const div = document.createElement('div');
@@ -211,7 +167,7 @@ export const createItemInCart =  function({id, title, price, image}) {
 function delCart() {
   let current = this.parentNode.parentNode.parentNode;
   Swal.fire({
-    title: 'Are you sure?',
+    title: '?Are you sure',
     text: "Wanna cancel this item",
     icon: 'question',
     confirmButtonColor: '#BB2D3B',
@@ -250,7 +206,6 @@ function changeQuantity() {
   let cartQuantity = current.querySelector(".cart-quantity");
   let cartCost = current.querySelector(".cart-cost");
   let quantity = parseFloat(cartQuantity.value);
-  // quantity += 1;
   if(!isNaN(quantity) && quantity > 0) {
     cartQuantity.value = quantity;
     cartCost.innerText = (itemDetail.price * quantity).toFixed(2);
@@ -273,25 +228,3 @@ function minusQuantity() {
     costTotal();
   }
 }
-
-// window.changeQuantity = function(price) {
-//   // const listItem = this.parentElement;
-//   const listItem = document.querySelector('.cart-quantity').parentElement.parentElement.parentElement;
-//   const number = listItem.querySelector('.cart-cost');
-//   const quantity = document.querySelector('.cart-quantity').value;
-//   let cartQuantity = document.querySelector(".cart-quantity");
-
-//   cartQuantity.value = quantity;
-  
-//   if(!isNaN(quantity) && quantity > 0) {
-//     number.innerHTML = (price * quantity).toFixed(2);
-//   }
-
-//   costTotal();
-  
-// }
-
-
-
-
-

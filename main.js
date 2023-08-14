@@ -52,30 +52,28 @@ fetch('https://fakestoreapi.com/products')
   printBtn.addEventListener('click', function() {
     if(parseFloat(total.innerHTML) > 0) {
       Swal.fire({
-        title: 'Are you sure?',
+        title: '?Are you sure',
         text: "Wanna checkout all of these items",
         icon: 'question',
         showCancelButton: true,
         confirmButtonColor: '#171717',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, I will!'
+        confirmButtonText: '!Yes, I will'
       }).then((result) => {
         if (result.isConfirmed) {
           Swal.fire(
-            'Congratulation!',
+            '!Congratulation',
             'We will send you more details later.',
             'success'
           );
 
           setTimeout(() => {
              location.reload();
-          }, 3000);
+          }, 2000);
 
 
         }
       })
-
-      // 
 
     }
   });
